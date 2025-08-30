@@ -1,0 +1,108 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "author": "jasonzhang",
+  "contributors": [
+    {
+      "name": ""
+    }
+  ],
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "type": "module",
+  "packageManager": "pnpm@9.15.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "typecheck": "tsc --noEmit --strict",
+    "lint": "eslint --cache .",
+    "format": "eslint --cache --fix .",
+    "format:json": "prettier --cache --write *.json",
+    "clear:deps": "rm -rf node_modules",
+    "build:vite-config": "cross-env target=vite-config rollup --config rollup.config.js",
+    "build:layout": "cross-env target=layout rollup --config rollup.config.js",
+    "create:app": "./scripts/create/create-app.js mpa",
+    "create:page": "./scripts/create/create-page.js mpa"
+  },
+  "bin": {
+    "cap": "./scripts/create-app.js",
+    "cpg": "./scripts/create-page.js",
+    "sd": "./scripts/start-dev.js",
+    "si": "./scripts/install-dep.js"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false"
+  },
+  "lint-staged": {
+    "packages/*/{src,types}/**/*.ts": [
+      "eslint --cache --fix"
+    ],
+    "packages/**/*.d.ts": [
+      "eslint --cache --fix"
+    ],
+    "packages/*/src/**/*.{tsx,jsx,js}": [
+      "eslint --cache --fix"
+    ],
+    "packages/*/src/**/*.json": [
+      "prettier --cache --write"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@jasonzhang/vite-config": "workspace:*",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@types/node": "^22.10.2",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@typescript-eslint/parser": "^5.1.0",
+    "ansi-color": "^0.2.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.13.0",
+    "inquirer": "^12.4.3",
+    "lint-staged": "^15.2.10",
+    "ora": "^8.1.1",
+    "pkg-dir": "^8.0.0",
+    "prettier": "^3.4.2",
+    "rollup": "^4.30.0",
+    "rollup-plugin-cpy": "^2.0.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "sass-embedded": "1.83.0",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^4.8.4",
+    "vite-plugin-mock": "^3.0.2",
+    "vue-eslint-parser": "^9.4.3"
+  },
+  "dependencies": {
+    "@ant-design/icons": "5.5.2",
+    "naive-ui": "2.42.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-vue": "5.2.1",
+    "antd": "5.22.7",
+    "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
+    "esbuild": "0.24.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router": "7.1.1",
+    "vite": "6.0.6",
+    "vue": "3.5.13",
+    "vue-router": "4.5.0"
+  }
+}

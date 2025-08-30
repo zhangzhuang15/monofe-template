@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+.DS_Store
+dist 
+**/dist
+.eslintcache
+build
+**/build
+.vscode/*
+!.vscode/extensions.json
+!packages/vite-config/dist

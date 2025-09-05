@@ -9,7 +9,7 @@ let bodyScript = '';
 const readHtmlFromDevLionConf = (blockName, workspaceRoot) => {
   try {
     const fileName = `${blockName}.html`;
-    return fs.readFileSync(path.join(workspaceRoot, `scripts/base-html/conf/dev/${fileName}`)).toString();
+    return fs.readFileSync(path.join(workspaceRoot, `scripts/base-html/dev/${fileName}`)).toString();
   } catch (error) {
     console.error(`读取文件失败: ${error}`);
     return '';

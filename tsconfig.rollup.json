@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "target": "ESNext",
+        "allowJs": true,
+        "strict": true,
+        "declaration": true,
+        "baseUrl": "."
+    },
+    "include": [
+        "packages/vite-config/index.ts"
+    ]
+}
